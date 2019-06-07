@@ -1,0 +1,59 @@
+<!-- <div class="container">
+  <div>
+    User Name : <input type="text" name="username" [(ngModel)]="username">
+    Password : <input type="password" name="password" [(ngModel)]="password">
+  </div>
+  <button  class="btn btn-success">
+    Login
+  </button>
+</div> -->
+<nav class="navbar navbar-light bg-info shadow sticky-top">
+    <a class="navbar-brand" href="#">
+      <img src="/assets/resources/logo/ganitLogo.png"  alt="">
+      <span class="display-4">
+          Hiring-OTG
+      </span>
+    </a>
+  </nav>
+  <div class="wrapper bg-secondary-light">
+<div class="container-fluid ">
+  
+    <div class="row ">
+        <div class="col-sm-8 pb-5">
+          <span class="display-lg text-info">
+            Welcome! <br>to <br>Ganit's<b> Hiring Portal</b>
+          </span><br>
+          <br>
+          <br>
+          <span class="display-4">
+            <i> "It's the people we hire today contruct what Ganit would be tomorrow"</i>
+          </span>
+          
+        </div>
+      <div class="col-lg-4 pt-5">
+        <mat-card class="shadow bg-light">
+              <mat-card-title class="text-info" >
+                Login
+              </mat-card-title>
+            <mat-card-content>
+                        <mat-form-field class="example-full-width">
+                            <input type="text" matInput placeholder="Username" [(ngModel)]="username">
+                          </mat-form-field>
+                        
+                        <mat-form-field class="example-full-width">
+                            <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+                          </mat-form-field>
+                        <div class="button">
+                            <button mat-flat-button color="primary" (click)=checkLogin()>Login</button>
+                           
+                          </div>
+                          
+              
+                     
+            </mat-card-content>
+            </mat-card>
+      </div>
+    </div>
+    
+  </div>
+</div>

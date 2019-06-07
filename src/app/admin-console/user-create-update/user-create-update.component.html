@@ -1,0 +1,79 @@
+<div class="text-right " >
+  <mat-icon matTooltip="Close" (click)="closeFunction()" class="">close</mat-icon>
+</div>
+<mat-card class="example-card shadow ">
+  <mat-card-header class="bg-light">
+    <mat-card-title class="text-info text-center">Create User</mat-card-title>
+    <mat-card-subtitle class="text-secondary text-center">Ganit Hiring Portal</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  
+  <mat-card-content class="bg-light">
+    <form [formGroup]="createUser">
+      <mat-form-field appearance="outline">
+          <mat-label>User Id</mat-label>
+          <input matInput placeholder="User Id" formControlName="userId">
+          <div *ngIf="createUser.controls.userId.errors && (createUser.controls.userId.touched || createUser.controls.userId.dirty)">
+              <mat-error *ngIf="createUser.get('userId').hasError('required')">
+                 User Id is required
+              </mat-error>
+          </div>
+          <mat-icon matSuffix>verified_user</mat-icon>
+          <mat-hint>Ganit id as User Id</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password">
+            <div *ngIf="createUser.controls.password.errors && (createUser.controls.password.touched || createUser.controls.password.dirty)">
+              <mat-error *ngIf="createUser.get('password').hasError('required')">
+                 Default Password is required
+              </mat-error>
+          </div>
+            <mat-icon matSuffix>vpn_key</mat-icon>
+            <mat-hint>Alpha-Numeric Password </mat-hint>
+          </mat-form-field>
+          <p>
+          <mat-form-field appearance="outline">
+              <mat-label>User Name</mat-label>
+              <input matInput placeholder="User Name" formControlName="userName">
+              <div *ngIf="createUser.controls.userName.errors && (createUser.controls.userName.touched || createUser.controls.userName.dirty)">
+                  <mat-error *ngIf="createUser.get('userName').hasError('required')">
+                     User Name is required
+                  </mat-error>
+              </div>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-hint>You are Superman of Ganit</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="matformfield">
+                <mat-label>Candidate Role</mat-label>
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete"  panelClass="example-panel-red">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+                
+               <mat-icon matSuffix>more_vert</mat-icon>
+               <mat-hint>Choose from drop-down </mat-hint>
+              </mat-form-field>
+            </p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="@Email Id" formControlName="emailId">
+                <div *ngIf="createUser.controls.emailId.errors && (createUser.controls.emailId.touched || createUser.controls.emailId.dirty)">
+                    <mat-error *ngIf="createUser.get('emailId').hasError('required')">
+                       Email Id is required
+                    </mat-error>
+                </div>
+                <mat-icon matSuffix>alternate_email</mat-icon>
+                <mat-hint>that's where the mail will trigger!</mat-hint>
+              </mat-form-field>
+            </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="createUserLogin(createUser)" color="edit">Save</button>
+  </mat-card-actions>
+
+  
+</mat-card>

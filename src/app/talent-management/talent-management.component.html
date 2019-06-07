@@ -1,0 +1,291 @@
+
+      <!-- <div class="col-md-2">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Total Candidate in Repository</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                  Total Candidate in Repository
+                <span class="display-4">
+                    <ng2-odometer [number]="number" [config]="{ }"></ng2-odometer>
+                </span>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button mat-raised-button color="accent">Accent</button>
+              </mat-card-actions>
+            </mat-card>      
+      </div> -->
+      <div class="wrapper bg-wrapper" style="background-image: url(/assets/resources/logo/texch2.jpg); height: 100%; width: 100% ; ">
+          <mat-accordion class="example-headers-align ">
+              <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header class="bg-panheader text-center" style="font-family: cursive;">
+                  <mat-panel-title ><mat-icon>account_circle</mat-icon>
+                    Register Candidate(Fill all the information for new Candidate)
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                  </mat-panel-title>
+                  <!-- <mat-panel-description>
+                    Fill all the information for new Candidate
+                    <mat-icon>account_circle</mat-icon><mat-icon>keyboard_arrow_down</mat-icon>
+                  </mat-panel-description> -->
+                </mat-expansion-panel-header>
+            
+                <mat-card class="bg-prim-card border border-info mt-2 "  >
+                   
+                    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="candidateStartInfo" >
+                          <form [formGroup]="candidateStartInfo">
+                            <ng-template matStepLabel >Generate Candidate Id</ng-template>
+                            <mat-card class="bg-card">
+                                <mat-form-field appearance="outline" class="matformfield">
+                                    <mat-label>Candidate Role</mat-label>
+                                    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getCandidateId($event)">
+                                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option}}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                    
+                                   <mat-icon matSuffix>more_vert</mat-icon>
+                                  </mat-form-field>
+                                <mat-form-field appearance="outline" class="matformfield">
+                                    <mat-label>Candidate ID</mat-label>
+                                    <input matInput placeholder="Candidate" formControlName="Candidate">
+                                   <mat-icon matSuffix>perm_identity</mat-icon>
+                                  </mat-form-field>
+                      
+                                  
+                                    <br>
+                                    <div class="custom-file ">
+                                        <input type="file" (change)="onSelectFiles($event)" class="custom-file-input" id="customFile" multiple>
+                                        <label class="custom-file-label" for="customFile">{{fileName}}</label>
+                                      </div>
+                            </mat-card>
+                            
+                            <div>
+                                <button mat-button matStepperNext color="accent">Next</button>
+                            </div>
+                          </form>
+                        </mat-step>
+                        <mat-step [stepControl]="candidateInfoFormgroup">
+                          <form [formGroup]="candidateInfoFormgroup">
+                            <ng-template matStepLabel>Fill out Candidate Primary Info</ng-template>
+                            <mat-card class="bg-card">
+                                      
+                              <mat-form-field appearance="outline" class="matformfieldsm" >
+                                    <mat-label>Candidate Name</mat-label>
+                                    <input matInput placeholder="Full Name" formControlName="fullName" >
+                                    <div *ngIf="candidateInfoFormgroup.controls.fullName.errors && (candidateInfoFormgroup.controls.fullName.touched || candidateInfoFormgroup.controls.fullName.dirty)">
+                                        <div *ngIf="candidateInfoFormgroup.hasError('required','fullName')">
+                                            <span class="text-muted">First Name is required*</span>
+                                        </div>
+                                        <div *ngIf="candidateInfoFormgroup.hasError('minlength','fullName')">
+                                            <span class="textMuted">Minimum Length is 30</span>
+                                        </div>
+                                    </div>
+                                   <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              </mat-form-field>
+                              <mat-form-field class="matformfieldsm">
+                                  <mat-label>Current Company Name</mat-label>
+                                  <input matInput placeholder="Current Company Name" formControlName="currentCompanyName">
+                                  <div *ngIf="candidateInfoFormgroup.controls.currentCompanyName.errors && (candidateInfoFormgroup.controls.currentCompanyName.touched || candidateInfoFormgroup.controls.currentCompanyName.dirty)">
+                                      <div *ngIf="candidateInfoFormgroup.hasError('required','currentCompanyName')">
+                                          <span class="text-muted">Company Name is required*</span>
+                                      </div>
+                                      <div *ngIf="candidateInfoFormgroup.hasError('minlength','currentCompanyName')">
+                                          <span class="textMuted">Minimum Length is 30</span>
+                                      </div>
+                                  </div>
+                                </mat-form-field>
+                                <mat-form-field class="matformfieldsm">
+                                    <mat-label>Duration in Last Company</mat-label >
+                                    <input matInput placeholder="in months" formControlName="durationCurrentCompany">
+                                </mat-form-field>
+                                <mat-form-field class="matformfieldsm">
+                                    <mat-label>Exp.</mat-label>
+                                    <mat-select   formControlName="totalExperience">
+                                      <mat-option value="0">Fresher</mat-option>
+                                      <mat-option value="1">1 Year</mat-option>
+                                      <mat-option value="2">2 Years</mat-option>
+                                      <mat-option value="3">3 Years</mat-option>
+                                      <mat-option value="4">4 Years</mat-option>
+                                      <mat-option value="5">5 Years</mat-option>
+                                      <mat-option value="6">6 Years</mat-option>
+                                      <mat-option value="7">7 Years</mat-option>
+                                      <mat-option value="8">8 Years</mat-option>
+                                      <mat-option value="9">9 Years</mat-option>
+                                      <mat-option value="10">10 Years</mat-option>
+                                    </mat-select>
+                                    <div *ngIf="candidateInfoFormgroup.controls.totalExperience.errors && (candidateInfoFormgroup.controls.totalExperience.touched || candidateInfoFormgroup.controls.totalExperience.dirty)">
+                                        <div *ngIf="candidateInfoFormgroup.hasError('required','totalExperience')">
+                                            <span class="text-warning">Total Experience is required*</span>
+                                        </div>
+                                    </div>
+                                  </mat-form-field>
+                                  <mat-form-field class="matformfieldsm">
+                                      <mat-label>Experience in Analytics</mat-label>
+                                      <input matInput placeholder="in (months)" formControlName="expInAnalytics">
+                                      <div *ngIf="candidateInfoFormgroup.controls.expInAnalytics.errors && (candidateInfoFormgroup.controls.expInAnalytics.touched || candidateInfoFormgroup.controls.expInAnalytics.dirty)">
+                                          <div *ngIf="candidateInfoFormgroup.hasError('required','expInAnalytics')">
+                                              <span class="text-warning">Total Experience in Analytics is required*</span>
+                                          </div>
+                                      </div>   
+                                  </mat-form-field>
+                                  <mat-form-field class="matformfieldsm">
+                                      <mat-label>Mail ID </mat-label>
+                                      <input matInput placeholder="Mail ID" formControlName="emailId">
+                                      <div *ngIf="candidateInfoFormgroup.controls.emailId.errors && (candidateInfoFormgroup.controls.emailId.touched || candidateInfoFormgroup.controls.emailId.dirty)">
+                                          <div *ngIf="candidateInfoFormgroup.hasError('required','emailId')">
+                                              <span class="text-warning">Email ID is required*</span>
+                                          </div>
+                                          <div *ngIf="candidateInfoFormgroup.hasError('email','emailId')">
+                                              <span class="text-warning">Email must be a valid email address*</span>
+                                          </div>
+                                      </div> 
+                                    </mat-form-field>
+                      
+                          <p>
+                             
+                                    <mat-form-field class="matformfieldsm">
+                                        <mat-label>Phone Number</mat-label>
+                                        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                                        <div *ngIf="candidateInfoFormgroup.controls.phoneNumber.errors && (candidateInfoFormgroup.controls.phoneNumber.touched || candidateInfoFormgroup.controls.phoneNumber.dirty)">
+                                            <mat-error *ngIf="candidateInfoFormgroup.get('phoneNumber').hasError('required')">
+                                                It is not a valid mobile number.
+                                            </mat-error>
+                                            <mat-error *ngIf="candidateInfoFormgroup.get('phoneNumber').hasError('pattern')">
+                                                It is not a valid mobile number.
+                                            </mat-error>
+                                        </div> 
+                                        
+                                    </mat-form-field>
+                                    <mat-form-field class="matformfieldsm">
+                                        <mat-label>Preferred Location</mat-label>
+                                        <input matInput placeholder="Preferred Location" formControlName="preferredLocation">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="fill" class="matformfieldsm">
+                                        <mat-label>Reason for Job change</mat-label>
+                                        <textarea matInput placeholder="Reason" formControlName="reasonForChange"></textarea>
+                                      </mat-form-field>
+                                      <mat-form-field class="matformfieldsm">
+                                          <mat-label>Last Appraisal Date</mat-label>
+                                          <input matInput [matDatepicker]="picker" placeholder="mm/dd/yyy" formControlName="lastApprDate">
+                                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                        </mat-form-field>
+                                        <mat-form-field  class="matformfieldsm">
+                                            <mat-label>Current CTC</mat-label>
+                                            <input matInput placeholder="in Number" formControlName="currentCtc">
+                                            <div *ngIf="candidateInfoFormgroup.controls.currentCtc.errors && (candidateInfoFormgroup.controls.currentCtc.touched || candidateInfoFormgroup.controls.currentCtc.dirty)">
+                                                <mat-error *ngIf="candidateInfoFormgroup.get('currentCtc').hasError('pattern')">
+                                                     Expected CTC must be number*
+                                                 </mat-error>
+                                             </div>
+                                          </mat-form-field>
+                                          <mat-form-field  class="matformfieldsm">
+                                              <mat-label>Expected CTC</mat-label>
+                                              <input matInput placeholder="in Number" formControlName="expectedCtc" >
+                                              <div *ngIf="candidateInfoFormgroup.controls.expectedCtc.errors && (candidateInfoFormgroup.controls.expectedCtc.touched || candidateInfoFormgroup.controls.expectedCtc.dirty)">
+                                                 <mat-error *ngIf="candidateInfoFormgroup.get('expectedCtc').hasError('pattern')">
+                                                      Expected CTC  must be number*
+                                                  </mat-error>
+                                              </div> 
+                                            </mat-form-field>
+                                        <mat-divider></mat-divider>
+          
+                                                              
+                          </p>
+                          <p>
+                              
+                                  <mat-form-field  class="matformfieldsm">
+                                      <mat-label>Current Location</mat-label>
+                                      <input matInput placeholder="Current Location" formControlName="currentLocation">
+                                   </mat-form-field>
+                                   <mat-form-field class="matformfieldsm">
+                                      <mat-label>Notice Period</mat-label>
+                                      <mat-select formControlName="noticePeriod">
+                                          <mat-option *ngFor="let notice of noticePeriod" [value]="notice">{{notice}}</mat-option>
+                                      </mat-select>
+                                      <div *ngIf="candidateInfoFormgroup.controls.noticePeriod.errors && (candidateInfoFormgroup.controls.noticePeriod.touched || candidateInfoFormgroup.controls.noticePeriod.dirty)">
+                                          <mat-error *ngIf="candidateInfoFormgroup.get('noticePeriod').hasError('required')">
+                                              Notice Period is Required*
+                                          </mat-error>
+                                      </div> 
+                                    </mat-form-field>
+                                    <mat-form-field class="matformfieldsm-s">
+                                        <mat-label>Negotiable</mat-label>
+                                        <mat-select formControlName="noticeNegotiable">
+                                          <mat-option value=true>Yes</mat-option>
+                                          <mat-option value=false>No</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                      <mat-form-field class="matformfieldsm-s">
+                                          <mat-label>Notice buy-Out</mat-label>
+                                          <mat-select formControlName="noticeBuyOut">
+                                            <mat-option value=true>Yes</mat-option>
+                                            <mat-option value=false>No</mat-option>
+                                          </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field class="matformfieldsm-s">
+                                            <mat-label>Offer in-hand</mat-label>
+                                            <mat-select formControlName="offerInHand">
+                                              <mat-option value=true>Yes</mat-option>
+                                              <mat-option value=false>No</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        </p>
+                                          <mat-form-field appearance="outline" class="matformfield">
+                                              <mat-label>Reason for +1 offers</mat-label>
+                                              <textarea matInput placeholder="Reason" formControlName="reasonForMoreOffer"></textarea>
+                                           </mat-form-field>
+                                      
+                                          <mat-form-field appearance="outline" class="matformfield">
+                                              <mat-label>Number of Projects with Details</mat-label>
+                                              <textarea matInput placeholder="Reason" formControlName="numOfProjectsDetails"></textarea>
+                                           </mat-form-field>
+                          
+                        </mat-card>
+                            <div>
+                              <button mat-button matStepperPrevious color="accent">Back</button>
+                              <button mat-button matStepperNext color="accent">Next</button>
+                            </div>
+                          </form>
+                        </mat-step>
+                        
+                        <mat-step>
+                          <ng-template matStepLabel>Done</ng-template>
+                         <span class="display-4">You are now done. save Candidate!</span> 
+                          <div>
+                              
+                            <button mat-button matStepperPrevious color="accent">Back</button>
+                            <button mat-raised-button color="primary" (click)="submitCandidateForm(candidateInfoFormgroup)">Save</button>
+                            <span class="text-success">{{saveMessage}}</span>
+                          </div>
+                          
+                        </mat-step>
+                      </mat-horizontal-stepper>
+                    </mat-card>
+              </mat-expansion-panel>
+            </mat-accordion>
+      
+
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-sm-12 ">
+      <mat-card class="shadow datatble-card " >
+          <mat-card-title class="text-center text-info"><mat-icon>list</mat-icon>Candidate Repository Table</mat-card-title>
+          <!-- <p class="text-danger">You clicked on: <strong>{{ message }}</strong>  -->
+            <mat-form-field appearance="outline" class="matformfield" >
+                <mat-label>Click on Row to Edit</mat-label>
+                <input matInput [value]=[message] disabled>
+             </mat-form-field>
+             <button  mat-raised-button (click)="gotoCandidatePage()" color="primary">Update Candidate</button>
+          <!-- </p> -->
+          <br />
+          <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover shadow"></table>
+        </mat-card>
+    </div>
+  </div>
+</div>
+
+</div>

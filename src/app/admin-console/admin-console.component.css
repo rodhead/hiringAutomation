@@ -1,0 +1,30 @@
+thead{
+    background-color: slategray;
+    color:snow
+}
+
+.mat-raised-button.mat-primary {
+    background-color: #9C27B0;
+}
+
+table {
+    width: 100%;
+  }
+
+.mat-button.mat-edit{
+    color: #ff9800;
+}
+tr.mat-header-row{
+    background-color: aquamarine;
+}
+.mat-paginator{
+    background-color: aquamarine;
+}
+
+.example-full-width {
+    width: 70%;
+  }
+
+.example-full{
+    width:100%;
+}

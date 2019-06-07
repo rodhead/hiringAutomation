@@ -1,0 +1,70 @@
+.matformfield{
+    width:30%;
+    margin-right: 20px;
+}
+
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: calc(1.5em + 0.75rem + 4px);
+    margin-bottom: 0;
+}
+
+
+
+.matformfieldsm{
+    width:15%;
+    margin-right: 20px;
+}
+
+.matformfieldsm-s{
+    width:7.5%;
+    margin-right: 20px;
+}
+
+.bg-card{
+    background-color: azure;
+}
+
+/* .bg-prim-card{
+    background-color:bisque
+} */
+
+table.dataTable {
+    background-color:teal;
+    
+  }
+ 
+  table.dataTable thead{
+    color: aliceblue !important;
+  }
+  .datatble-card{
+      background-color:transparent;
+  }
+
+  .bg-panheader{
+    background-color: #ffbe07 !important;
+  }
+
+/* .bg-wrapper{
+    background-color: #495057;
+}   */
+.example-panel-red.mat-select-panel {
+    background: rgba(255, 0, 0, 0.5);
+  }
+  
+  .example-panel-green.mat-select-panel {
+    background: rgba(0, 255, 0, 0.5);
+  }
+  
+  .example-panel-blue.mat-select-panel {
+    background: rgba(0, 0, 255, 0.5);
+  }
+
+  .mat-expansion-panel-header-title  {
+    font-size: 18px;
+    display: block;
+    flex-grow: 1;
+    margin-right: 16px;
+}

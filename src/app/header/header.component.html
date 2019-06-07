@@ -1,0 +1,38 @@
+<mat-toolbar class="bg-ganit">
+
+    <button mat-button routerLink="/" style="font-size: x-large; font-family: monospace">
+      <img class="bg-light"  src="/assets/resources/logo/ganitLogo.png"  alt="" style="width: 80px; height: 60px;">
+        {{title}}</button>
+
+    <!-- This fills the remaining space of the current row -->
+    
+    <span class="fill-remaining-space"></span>
+    
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <button mat-raised-button color="accent"  *ngIf="loginService.getUserRole()==='Admin'" routerLink="/adminConsole">
+          <mat-icon>scatter_plot</mat-icon>
+          Admin Console</button>
+          <button mat-button [matMenuTriggerFor]="appMenu">Welcome {{name}}({{loginService.getUserRole()}})<mat-icon>keyboard_arrow_down</mat-icon></button>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item routerLink="/logout"><mat-icon>logout</mat-icon>Logout</button>
+            <button mat-menu-item >Change Password</button>
+            
+            
+          </mat-menu>
+
+          
+          <!-- <button mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/logout">
+            <mat-icon>logout</mat-icon>
+            Logout</button> -->
+          
+    </div>
+    <!-- <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+     <mat-icon>menu</mat-icon>
+    </button> -->
+
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item *ngIf="loginService.isUserLoggedIn()" routerLink="/products">Products</button>
+    <button mat-menu-item *ngIf="loginService.isUserLoggedIn()" routerLink="/dashboard">Dashboard</button>
+    <!--<button mat-menu-item>Help</button>-->
+</mat-menu>

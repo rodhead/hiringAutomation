@@ -1,0 +1,67 @@
+.display-6{
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.matformfield{
+    width:30%;
+    margin-right: 20px;
+}
+
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: calc(1.5em + 0.75rem + 4px);
+    margin-bottom: 0;
+}
+
+.matformfieldsm{
+    width:15%;
+    margin-right: 20px;
+}
+
+.matformfieldsm-s{
+    width:7.5%;
+    margin-right: 20px;
+}
+
+.matformfieldlg{
+    width:60%;
+    margin-right: 20px; 
+}
+
+.mat-slider-horizontal {
+    width: 250px;
+  }
+
+.bg-red{
+    background-color: #ff57221a;
+}
+
+.matformfield{
+    margin-left: 20px; 
+}
+
+.datatble-card{
+    background-color:transparent;
+}
+
+.btn{
+    color: var(--green);
+}
+.mat-button.mat-green, .mat-icon-button.mat-green, .mat-stroked-button.mat-green {
+    color: var(--green);
+}
+.mat-button.mat-yellow, .mat-icon-button.mat-yellow, .mat-stroked-button.mat-yellow {
+    color: rgb(245, 205, 55  )
+}
+
+.example-panel-red.mat-select-panel {
+    background: rgba(255, 0, 0, 0.5);
+  }
+
+.bg-light-green{
+    background-color: #20c99766;
+}

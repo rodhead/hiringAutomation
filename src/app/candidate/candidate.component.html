@@ -1,0 +1,279 @@
+<mat-card class="text-center">
+    
+  <span class="display-6 ">Candidate Informatoin Field</span>&nbsp;&nbsp;&nbsp;
+  <!-- <mat-slide-toggle  (change)="onChange($event)">{{togMsg}}</mat-slide-toggle>  -->
+  <button mat-button matTooltip="Downoad Resume" (click)="downloadResume()" color="accent"><mat-icon>cloud_download</mat-icon>Resume</button>
+</mat-card>
+
+<div class="container-fluid mt-3 datatble-card" style="background-image: url(/assets/resources/logo/texch2.jpg); height: 100%; width: 100% ; ">
+  <div class="row">
+    <div class="col-sm-12">
+      <mat-card class="shadow ">
+        <span class="text-info"><mat-icon>people</mat-icon>Candidate General Information  </span>
+        <mat-divider></mat-divider>
+        <form class="pl-3 mt-2 bg-light-green">
+            <div class="form-group row">
+                <label for="staticEmail" class=" col-form-label">CandidateID:</label>
+                <div class="col-sm-2">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{candidateID}}>
+                </div>
+                <label for="staticEmail" class=" col-form-label">Candidate Name:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{FirstName}}>
+                  </div>
+                  <label for="staticEmail" class=" col-form-label">Candidate Role:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{CandidateRole}}>
+                  </div>
+                  <label for="staticEmail" class=" col-form-label">Candidate Status:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-success" id="staticEmail" value={{canStatus}}>
+                  </div>
+                  <button mat-button matTooltip="View Resume" color="primary"><mat-icon>remove_red_eye</mat-icon>View Resume</button>
+              </div>
+        </form>
+         <form [formGroup]="childCandidateForm">
+           <mat-card class="mb-5">
+            <p>
+                <mat-form-field class="matformfieldsm">
+                    <mat-label>Current Company Name</mat-label>
+                    <input matInput placeholder="Current Company Name" formControlName="currentCompanyName">
+                  </mat-form-field>
+                  <mat-form-field class="matformfieldsm">
+                      <mat-label>Duration in Last Company</mat-label >
+                      <input matInput placeholder="in months" formControlName="durationCurrentCompany">
+                  </mat-form-field>
+                  <mat-form-field class="matformfieldsm">
+                      <mat-label>Exp.</mat-label>
+                      <mat-select formControlName="totalExperience" >
+                        <mat-option value="0">Fresher</mat-option>
+                        <mat-option value="1">1 Year</mat-option>
+                        <mat-option value="2">2 Years</mat-option>
+                        <mat-option value="3">3 Years</mat-option>
+                        <mat-option value="4">4 Years</mat-option>
+                        <mat-option value="5">5 Years</mat-option>
+                        <mat-option value="6">6 Years</mat-option>
+                        <mat-option value="7">7 Years</mat-option>
+                        <mat-option value="8">8 Years</mat-option>
+                        <mat-option value="9">9 Years</mat-option>
+                        <mat-option value="10">10 Years</mat-option>
+
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="matformfieldsm">
+                        <mat-label>Experience in Analytics</mat-label>
+                        <input matInput placeholder="in (months)" formControlName="expInAnalytics">
+                    </mat-form-field>
+                    <mat-form-field class="matformfieldsm">
+                        <mat-label>Mail ID </mat-label>
+                        <input matInput placeholder="Mail ID" formControlName="emailId">
+                      </mat-form-field>
+                      <mat-form-field class="matformfieldsm">
+                          <mat-label>Phone Number</mat-label>
+                          <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                      </mat-form-field>
+                      <mat-form-field class="matformfieldsm">
+                          <mat-label>Preferred Location</mat-label>
+                          <input matInput placeholder="Preferred Location" formControlName="preferredLocation">
+                      </mat-form-field>
+                      <mat-form-field appearance="fill" class="matformfieldsm">
+                          <mat-label>Reason for Job change</mat-label>
+                          <textarea matInput placeholder="Reason" formControlName="reasonForChange"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="matformfieldsm">
+                            <input matInput [matDatepicker]="picker" placeholder="Last Appraisal Date" formControlName="lastApprDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                          </mat-form-field>
+                          <mat-divider></mat-divider>
+
+                                                
+            </p>
+            <p>
+                <mat-form-field  class="matformfieldsm">
+                    <mat-label>Current CTC</mat-label>
+                    <input matInput placeholder="in Number" formControlName="currentCtc">
+                  </mat-form-field>
+                  <mat-form-field  class="matformfieldsm">
+                      <mat-label>Expected CTC</mat-label>
+                      <input matInput placeholder="in Number" formControlName="expectedCtc" >
+                    </mat-form-field>
+                    <mat-form-field  class="matformfieldsm">
+                        <mat-label>Current Location</mat-label>
+                        <input matInput placeholder="Current Location" formControlName="currentLocation">
+                     </mat-form-field>
+                     <mat-form-field class="matformfieldsm">
+                        <mat-label>Notice Period</mat-label>
+                        <mat-select formControlName="noticePeriod">
+                            <mat-option value="">None</mat-option>
+                          <mat-option value="0">Immediate</mat-option>
+                          <mat-option value="1">1 month</mat-option>
+                          <mat-option value="2">2 months</mat-option>
+                          <mat-option value="3">3 months</mat-option>
+                          <mat-option value="4">4 months</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="matformfieldsm-s">
+                          <mat-label>Negotiable</mat-label>
+                          <mat-select formControlName="noticeNegotiable"  panelClass="example-panel-red">
+                            <mat-option value="true">Yes</mat-option>
+                            <mat-option value="false">No</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="matformfieldsm-s">
+                            <mat-label>Notice buy-Out</mat-label>
+                            <mat-select formControlName="noticeBuyOut">
+                              <mat-option value="true">Yes</mat-option>
+                              <mat-option value="false">No</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field class="matformfieldsm-s">
+                              <mat-label>Offer in-hand</mat-label>
+                              <mat-select formControlName="offerInHand">
+                                <mat-option value="true">Yes</mat-option>
+                                <mat-option value="false">No</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+            </p>
+            
+                <mat-form-field appearance="outline" class="matformfield">
+                    <mat-label>Reason for +1 offers</mat-label>
+                    <textarea matInput placeholder="Reason" formControlName="reasonMoreOffer"></textarea>
+                 </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="matformfield">
+                    <mat-label>Number of Projects with Details</mat-label>
+                    <textarea matInput placeholder="Reason" formControlName="numOfProject"></textarea>
+                 </mat-form-field>
+            
+         
+        
+         <br>
+                </mat-card>
+         <span class="text-info"><mat-icon>filter_1</mat-icon>1st Tier Form  </span>
+         <button mat-button  matTooltip="File available to Download:{{this.ftierFileView}}" (click)="downloadFirstTierDoc()" color="accent"><mat-icon>arrow_downward</mat-icon>DOC Download</button>
+         <button mat-button  matTooltip="File available to View:{{this.ftierFileView}}" (click)="openDialogTierOne()" color="primary"><mat-icon>remove_red_eye</mat-icon>DOC View</button>
+         <button mat-button *ngIf="fTierFlag" color="green"><mat-icon>check_circle</mat-icon>Completed</button>
+         <button mat-button *ngIf="!fTierFlag" color="yellow"><mat-icon>check_circle</mat-icon>Pending</button>
+         <mat-divider></mat-divider>
+         <mat-card class="mt-1 bg-light-green shadow-sm">
+            <mat-form-field appearance="outline" class="matformfield">
+                <mat-label>Interviewed By</mat-label>
+                <input type="text" placeholder="Interview taken by" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+                
+               <mat-icon matSuffix>more_vert</mat-icon>
+              </mat-form-field>
+          <div class="custom-file ">
+              <input type="file" (change)="onSelectFiles($event)" class="custom-file-input" id="customFile" multiple>
+              <label class="custom-file-label" for="customFile">{{fileName}}</label>
+            </div>
+            <mat-form-field  appearance="outline" class="matformfield">
+                <mat-label>Candidate Final Status</mat-label>
+                <mat-select formControlName="firstTierResult">
+                  <mat-option value='Selected'>Selected</mat-option>
+                  <mat-option value='NotSelected'>Not Selected</mat-option>
+                  <mat-option value='OnHold'>On-Hold</mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+         </mat-card>
+         <br>
+         <span class="text-info"><mat-icon>filter_2</mat-icon>2nd Tier Form  </span>
+         <button mat-button matTooltip="File available to Download:{{this.stierFileView}}" (click)="downloadSecondTierDoc()" color="accent"><mat-icon>arrow_downward</mat-icon>DOC Download</button>
+         <button mat-button matTooltip="File available to View:{{this.stierFileView}}" (click)="openDialogTierTwo()" color="primary"><mat-icon>remove_red_eye</mat-icon>DOC View</button>
+         <button mat-button *ngIf="sTierFlag" color="green"><mat-icon>check_circle</mat-icon>Completedd</button>
+         <button mat-button *ngIf="!sTierFlag" color="yellow"><mat-icon>check_circle</mat-icon>Pending</button>
+         <mat-divider></mat-divider>
+         <mat-card class="mt-1 bg-light-green shadow-sm">
+            <mat-form-field appearance="outline" class="matformfield">
+                <mat-label>Interviewed By</mat-label>
+                <input type="text" placeholder="Interview taken by" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option2 of filteredOptions | async" [value]="option2">
+                    {{option2}}
+                  </mat-option>
+                </mat-autocomplete>
+                
+               <mat-icon matSuffix>more_vert</mat-icon>
+              </mat-form-field>
+          <div class="custom-file ">
+              <input type="file" (change)="onSelectFiles2($event)" class="custom-file-input" id="customFile" multiple>
+              <label class="custom-file-label" for="customFile">{{fileName2}}</label>
+            </div>
+            <mat-form-field  appearance="outline" class="matformfield">
+                <mat-label>Candidate Final Status</mat-label>
+                <mat-select formControlName="secondTierResult">
+                  <mat-option value='Selected'>Selected</mat-option>
+                  <mat-option value='NotSelected'>Not Selected</mat-option>
+                  <mat-option value='OnHold'>On-Hold</mat-option>
+                </mat-select>
+              </mat-form-field>
+         </mat-card>
+         
+         <br>
+         <span class="text-primary"><mat-icon>gavel</mat-icon>Decison Taking Tier  </span>
+         <button mat-button matTooltip="File available to Download:{{this.ttierFileView}}" (click)="downloadThirdTierDoc()" color="accent"><mat-icon>arrow_downward</mat-icon>DOC Download</button>
+         <button mat-button matTooltip="File available to View:{{this.ttierFileView}}" (click)="openDialogTierThree()" color="primary"><mat-icon>remove_red_eye</mat-icon>DOC View</button>
+         <button mat-button *ngIf="tTierFlag" color="green"><mat-icon>check_circle</mat-icon>Completed</button>
+         <button mat-button *ngIf="!tTierFlag" color="yellow"><mat-icon>check_circle</mat-icon>Pending</button>
+         <mat-divider></mat-divider>
+         <mat-card class="mt-1 bg-red shadow-sm border border-warning">
+            <mat-form-field appearance="outline" class="matformfield">
+                <mat-label>Interviewed By</mat-label>
+                <input type="text" placeholder="Interview taken by" aria-label="Number" matInput [formControl]="myControl3" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option3 of filteredOptions | async" [value]="option3">
+                    {{option3}}
+                  </mat-option>
+                </mat-autocomplete>
+                
+               <mat-icon matSuffix>more_vert</mat-icon>
+              </mat-form-field>
+          <mat-form-field appearance="fill" class="matformfieldlg">
+              <mat-label>Feedback from Interviewer</mat-label>
+              <textarea matInput placeholder="feedback" formControlName="finalFB"></textarea>
+            </mat-form-field>
+            <mat-form-field  appearance="outline" class="matformfield">
+                <mat-label>Candidate Final Status</mat-label>
+                <mat-select formControlName="thirdTierResult">
+                  <mat-option value='Selected'>Selected</mat-option>
+                  <mat-option value='NotSelected'>Not Selected</mat-option>
+                  <mat-option value='OnHold'>On-Hold</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="custom-file ">
+                  <input type="file" (change)="onSelectFiles3($event)" class="custom-file-input" id="customFile" multiple>
+                  <label class="custom-file-label" for="customFile">{{fileName3}}</label>
+                </div>
+                <!-- <ngx-doc-viewer [url]="urli" viewer="google" style="width:100%;height:50vh;"></ngx-doc-viewer> -->
+                
+              
+         </mat-card>
+        </form>
+        <!-- <div>
+            <label> Pdf src </label>
+            <input (change)="onFileSelected()" type="file" id="file">
+            <input [(ngModel)]="page" type="text" id="page">
+          </div>
+          <pdf-viewer [src]="pdfSrc"
+            [render-text]="true"
+            [page]="page" 
+            [show-all]="false"
+            style="display: block;">
+          </pdf-viewer>
+         <br><br>
+         <h2>Download from file system</h2>
+          <form (ngSubmit)="downloadFileSystem()">
+            <input [(ngModel)]="fileSystemName" name="file-system">
+            <button [disabled]="!fileSystemName">Download file system</button>
+          </form> -->
+         <button mat-raised-button (click)="updateCandidate()" color="primary"><mat-icon>save_alt</mat-icon>update</button>
+      </mat-card>
+    </div>
+  </div>
+</div>

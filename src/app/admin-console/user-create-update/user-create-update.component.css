@@ -1,0 +1,14 @@
+.mat-button.mat-save{
+    color: #009688;
+}
+.mat-button.mat-edit{
+    color: #ff9800;
+}
+
+.mat-raised-button {
+    color: #f8f9fa;
+    background-color: #ff9800;
+}
+.example-panel-red.mat-select-panel {
+    background: rgba(255, 0, 0, 0.5);
+  }

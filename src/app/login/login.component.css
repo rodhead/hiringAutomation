@@ -1,0 +1,14 @@
+.example-full-width {
+    width: 60%;
+  }
+
+  .display-lg{
+      font-size: 9rem;
+      font-weight: 300;
+      line-height: 1.2;
+  
+  }
+
+  .bg-secondary-light{
+    background-color: #6c757d1f !important;
+  }
